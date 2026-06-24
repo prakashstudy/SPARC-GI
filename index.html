@@ -517,7 +517,7 @@
                         </div>
                         
                         <!-- CRF Tab Selector Bar -->
-                        <div class="flex flex-wrap gap-1 border-b border-slate-100 pb-2 overflow-x-auto" id="crf-tab-selector-bar">
+                        <div class="flex flex-nowrap md:flex-wrap gap-1 border-b border-slate-100 pb-2 overflow-x-auto" id="crf-tab-selector-bar">
                             <!-- Populated dynamically by JS -->
                         </div>
                         
@@ -531,7 +531,7 @@
                 <!-- ================= TAB 3: BIOBANK TRACKER ================= -->
                 <div id="tab-biobank" class="tab-content flex flex-col gap-6 hidden">
                     <!-- Biobank Inventory Metrics -->
-                    <div class="grid grid-cols-5 gap-4" id="biobank-summary-container">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="biobank-summary-container">
                         <!-- Dynamic Biobank Summary Cards -->
                     </div>
                     
@@ -553,16 +553,18 @@
                     <!-- Recent Specimen Collections -->
                     <div class="white-card">
                         <h3 class="text-xs font-semibold uppercase tracking-wider text-[#647691] mb-4">Recent specimen collections · last 10</h3>
-                        <div class="grid grid-cols-12 gap-0 text-xs font-semibold uppercase tracking-wider text-[#93a0b1] pb-3 border-b border-[#e9edf2] px-1">
-                            <span class="col-span-2">Patient ID</span>
-                            <span class="col-span-2">Cancer</span>
-                            <span class="col-span-3">Sample Type</span>
-                            <span class="col-span-2">Timepoint</span>
-                            <span class="col-span-2">Storage Location</span>
-                            <span class="col-span-1 text-right">Date</span>
-                        </div>
-                        <div class="flex flex-col" id="recent-specimens-body">
-                            <!-- Dynamic Recent specimens -->
+                        <div class="overflow-x-auto">
+                            <div class="grid grid-cols-12 gap-0 text-xs font-semibold uppercase tracking-wider text-[#93a0b1] pb-3 border-b border-[#e9edf2] px-1 min-w-[700px] md:min-w-0">
+                                <span class="col-span-2">Patient ID</span>
+                                <span class="col-span-2">Cancer</span>
+                                <span class="col-span-3">Sample Type</span>
+                                <span class="col-span-2">Timepoint</span>
+                                <span class="col-span-2">Storage Location</span>
+                                <span class="col-span-1 text-right">Date</span>
+                            </div>
+                            <div class="flex flex-col" id="recent-specimens-body">
+                                <!-- Dynamic Recent specimens -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -570,14 +572,14 @@
                 <!-- ================= TAB 4: DATA DICTIONARY BROWSER ================= -->
                 <div id="tab-dictionary" class="tab-content flex flex-col gap-6 hidden">
                     <!-- Filters and search -->
-                    <div class="white-card grid grid-cols-12 gap-6">
-                        <div class="col-span-5 flex flex-col gap-1.5">
+                    <div class="white-card grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <div class="col-span-1 md:col-span-5 flex flex-col gap-1.5">
                             <label class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Data Dictionary Section</label>
                             <select onchange="updateDictionaryTable(this.value)" id="dictionary-section-select" class="custom-input font-semibold text-slate-800 cursor-pointer">
                                 <!-- Dynamic Options -->
                             </select>
                         </div>
-                        <div class="col-span-7 flex flex-col gap-1.5">
+                        <div class="col-span-1 md:col-span-7 flex flex-col gap-1.5">
                             <label class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Search / Filter Variables</label>
                             <div class="relative">
                                 <input type="text" id="dictionary-search-input" oninput="filterDictionaryTable()" placeholder="Type variable name, ID, or description to filter..." class="custom-input pr-10">
@@ -589,7 +591,7 @@
                     </div>
                     
                     <!-- Stats summary cards -->
-                    <div class="grid grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div class="bg-white border border-[#e4e9ef] rounded-xl p-4 shadow-sm flex items-center justify-between">
                             <div>
                                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Total Coded Fields</span>
@@ -637,7 +639,7 @@
                         </div>
                         
                         <div class="overflow-x-auto border border-slate-100 rounded-lg">
-                            <table class="w-full text-left border-collapse">
+                            <table class="w-full text-left border-collapse min-w-[800px]">
                                 <thead>
                                     <tr class="bg-slate-50 text-[#0B1F3A] font-bold text-xs border-b border-slate-200">
                                         <th class="p-3.5 w-[20%]">ID</th>
@@ -663,9 +665,9 @@
                 </div>
                 
                 <!-- ================= TAB 5: CONSENT & REGISTRATION ================= -->
-                <div id="tab-consent" class="tab-content grid grid-cols-12 gap-6 hidden">
+                <div id="tab-consent" class="tab-content grid grid-cols-1 md:grid-cols-12 gap-6 hidden">
                     <!-- Left Column: Ethics Checklist -->
-                    <div class="white-card col-span-6 flex flex-col">
+                    <div class="white-card col-span-1 md:col-span-6 flex flex-col">
                         <h3 class="font-semibold text-lg text-slate-800 mb-2 font-outfit">Clinical Consent Checklist (Ethics Gate)</h3>
                         <p class="text-xs text-[#647691] mb-5">Verify each of the 10 criteria below to unlock patient registration forms.</p>
                         
@@ -679,7 +681,7 @@
                     </div>
                     
                     <!-- Right Column: Registration Form -->
-                    <div class="white-card col-span-6 flex flex-col">
+                    <div class="white-card col-span-1 md:col-span-6 flex flex-col">
                         <h3 class="font-semibold text-lg text-slate-800 mb-4 font-outfit">Patient Registration</h3>
                         
                         <!-- Demo Quick Fill Scenarios -->
@@ -756,9 +758,9 @@
                 </div>
                 
                 <!-- ================= TAB 6: CLINICAL CALCULATOR ================= -->
-                <div id="tab-calculator" class="tab-content grid grid-cols-12 gap-6 hidden">
+                <div id="tab-calculator" class="tab-content grid grid-cols-1 md:grid-cols-12 gap-6 hidden">
                     <!-- Left: Patient Assessment Input Form -->
-                    <div class="white-card col-span-6 flex flex-col gap-4">
+                    <div class="white-card col-span-1 md:col-span-6 flex flex-col gap-4">
                         <h3 class="font-semibold text-lg text-slate-800 mb-2 font-outfit">Patient Assessment Form</h3>
                         
                         <div class="flex flex-col gap-1.5">
@@ -771,7 +773,7 @@
                             <input type="date" id="calc-date-assess" onchange="runCalculations()" value="2026-06-23" class="custom-input font-mono">
                         </div>
                         
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="flex flex-col gap-1.5">
                                 <label class="text-xs font-semibold text-slate-500">Baseline Weight (Kg):</label>
                                 <input type="number" id="calc-w-base" oninput="runCalculations()" value="70.0" step="0.1" min="0" class="custom-input font-mono">
@@ -799,7 +801,7 @@
                     </div>
                     
                     <!-- Right: Calculations & Validation Output -->
-                    <div class="white-card col-span-6 flex flex-col">
+                    <div class="white-card col-span-1 md:col-span-6 flex flex-col">
                         <h3 class="font-semibold text-lg text-slate-800 mb-4 font-outfit">Calculations & Validation Output</h3>
                         
                         <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 flex flex-col gap-5 flex-1">
@@ -3420,7 +3422,7 @@
             Object.keys(crfTabLabels).forEach(tabId => {
                 const label = crfTabLabels[tabId];
                 html += `
-                <button onclick="switchCRFTab('${tabId}')" id="crf-tab-${tabId}" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold border ${activeCRFTab === tabId ? 'bg-teal-600 border-teal-600 text-white shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'} transition-all">
+                <button onclick="switchCRFTab('${tabId}')" id="crf-tab-${tabId}" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold border flex-none whitespace-nowrap ${activeCRFTab === tabId ? 'bg-teal-600 border-teal-600 text-white shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'} transition-all">
                     ${label}
                 </button>`;
             });
@@ -3474,7 +3476,7 @@
                 return;
             }
             
-            let html = `<div class="grid grid-cols-2 gap-x-8 gap-y-5">`;
+            let html = `<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">`;
             
             variables.forEach(v => {
                 const val = patientData[v.ID] || '';
@@ -3751,7 +3753,7 @@
             let html = '';
             recentSpecimens.forEach(rc => {
                 html += `
-                <div class="grid grid-cols-12 gap-0 items-center py-2.5 border-b border-slate-100 px-1 hover:bg-slate-50 transition-colors">
+                <div class="grid grid-cols-12 gap-0 items-center py-2.5 border-b border-slate-100 px-1 hover:bg-slate-50 transition-colors min-w-[700px] md:min-w-0">
                     <span class="col-span-2 font-semibold text-[12.5px] font-mono text-[#0B1F3A]">${rc.pid}</span>
                     <span class="col-span-2 text-xs font-semibold text-slate-600">${rc.cancer}</span>
                     <div class="col-span-3 flex items-center gap-2">
